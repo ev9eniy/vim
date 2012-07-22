@@ -26,9 +26,9 @@ autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html setlocal cinwords=if,
 autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html setlocal matchpairs=(:),{:},[:]
 autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html set omnifunc=phpcomplete#CompletePHP
 
-autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html set dict+=$HOME.\DICT\plueprint.dic
-autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html set dict+=$HOME.\DICT\bitrix.dic
-autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html set dict+=$HOME.\DICT\bitrix_comp.dic
+autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html set dict+=$HOME.\VIMFILES\DICT\plueprint.dic
+autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html set dict+=$HOME.\VIMFILES\DICT\bitrix.dic
+autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html set dict+=$HOME.\VIMFILES\DICT\bitrix_comp.dic
 autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html set dict+=$HOME.\VIMFILES\DICT\PHP.DIC
 
 "autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html setlocal complete+=k

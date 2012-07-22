@@ -15,6 +15,9 @@ au BufRead,BufNewFile,BufWinEnter *.css setlocal filetype=css
 au BufRead,BufNewFile,BufWinEnter *.css,*.html imap <silent><F3> <Esc>:w\|:!@to_ftp.cmd %<CR><CR>ki
 au BufRead,BufNewFile,BufWinEnter *.css,*.html vmap <silent><F3> <Esc>:w\|:!@to_ftp.cmd %<CR><CR>ki
 au BufRead,BufNewFile,BufWinEnter *.css,*.html nmap <silent><F3> :w\|:!@to_ftp.cmd %<CR><CR>ki
+au BufRead,BufNewFile,BufWinEnter *.css set dict+=$HOME.\VIMFILES\DICT\plueprint.dic
+au BufRead,BufNewFile,BufWinEnter *.css set dict+=$HOME.\VIMFILES\DICT\css21.dic
+
 
 "au BufRead,BufNewFile *.css set foldmethod=marker  
 "au BufRead,BufNewFile *.css set foldmarker=(start),(end)
