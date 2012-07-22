@@ -2,8 +2,9 @@
 au BufRead,BufNewFile *.tpl set filetype=smarty
 "au BufRead,BufNewFile *.tpl set filetype=smarty
 "additionally, if you would like dictionary completion, feel free to add something like this:
-au Filetype smarty set dict+=~\VIM\VIMFILES\DICT\TWIG.DIC
-au Filetype smarty set dict+=~\VIM\VIMFILES\DICT\HTML.DIC
+au Filetype smarty set dict+=$HOME.\VIMFILES\DICT\TWIG.DIC
+au Filetype smarty set dict+=$HOME.\VIMFILES\DICT\HTML.DIC
+au Filetype smarty set dict+=$HOME.\VIMFILES\DICT\plueprint.dic
 au Filetype smarty set complete+=k 
 au Filetype smarty inoremap {% {%  %}<LEFT><LEFT><Esc>i
 au Filetype smarty inoremap {{ {{  }}<LEFT><LEFT><Esc>i
@@ -37,4 +38,3 @@ autocmd BufNewFile,BufRead,BufWinEnter *.tpl nmap inc include '<C-V>'<Left>
 if exists("b:did_indent")
   finish
 endif
-

@@ -1,13 +1,15 @@
 autocmd BufNewFile,BufRead,BufWinEnter *.js nmap <silent><F12> :!ctag_js.cmd<CR><CR>
 autocmd BufNewFile,BufRead,BufWinEnter *.js imap <silent><F12> <Esc>:!ctag_js.cmd<CR><CR>
 
-autocmd BufNewFile,BufRead,BufWinEnter *.js setlocal dictionary+=~\VIM\VIMFILES\DICT\jq.dic
+autocmd BufNewFile,BufRead,BufWinEnter *.js setlocal dictionary+=$HOME.\VIMFILES\DICT\jq.dic
+autocmd BufNewFile,BufRead,BufWinEnter *.js set dict+=$HOME.\VIMFILES\DICT\plueprint.dic
 autocmd BufNewFile,BufRead,BufWinEnter *.js set omnifunc=javascriptcomplete#CompleteJS
 autocmd BufNewFile,BufRead,BufWinEnter *.js let g:tlist_javascript_settings = 'javascript;v:var;c:class;p:prototype;m:method;f:function;o:object'
 autocmd BufNewFile,BufRead,BufWinEnter *.js imap aa {};<Esc>T{i
 
 "autocmd BufNewFile,BufRead,BufWinEnter *.js set makeprg=c://php//jsl\ -nologo\ -nofilelisting\ -nosummary\ -nocontext\ -conf\ c://php//jsl.default.conf\ -process\ %
-autocmd BufNewFile,BufRead,BufWinEnter *.js set makeprg=c://php//jsl\ -nologo\ -nofilelisting\ -nosummary\ -nocontext\ -conf\ c://php//jsl.default.conf\ -process\ %
+"autocmd BufNewFile,BufRead,BufWinEnter *.js set makeprg=c://php//jsl\ -nologo\ -nofilelisting\ -nosummary\ -nocontext\ -conf\ c://php//jsl.default.conf\ -process\ %
+autocmd BufNewFile,BufRead,BufWinEnter *.js set makeprg=C://PHP//jsl\ -nologo\ -nofilelisting\ -nosummary\ -nocontext\ -conf\ C://PHP//jsl.default.conf\ -process\ %
 
 
 autocmd BufNewFile,BufRead,BufWinEnter *.js set errorformat=%f(%l):\ %m
@@ -79,7 +81,6 @@ autocmd BufNewFile,BufRead,BufWinEnter *.js nmap <m-4> i$<M-f>
 "autocmd BufNewFile,BufRead,BufWinEnter *.js nmap <C-f> <Esc>function(){<Enter>}<Up><End><Esc>T(<Left><Left>a
 autocmd BufNewFile,BufRead,BufWinEnter *.js imap <C-f> fun<M-f>
 autocmd BufNewFile,BufRead,BufWinEnter *.js nmap <C-f> ifun<M-f>
-
 autocmd BufNewFile,BufRead,BufWinEnter *.js nmap imap ö value
 autocmd BufNewFile,BufRead,BufWinEnter *.js nmap imap ô title
 autocmd BufNewFile,BufRead,BufWinEnter *.js inoremap Ô <C-R>=MyThisOrCompleteJS()<CR>

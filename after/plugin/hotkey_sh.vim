@@ -1,5 +1,5 @@
 " autocmd BufNewFile,BufRead,BufWinEnter *.sh set filetype=sh
-autocmd BufNewFile,BufRead,BufWinEnter *.sh set dict+=~\VIM\VIMFILES\DICT\BASH.DIC
+autocmd BufNewFile,BufRead,BufWinEnter *.sh set dict+=$HOME.\VIMFILES\DICT\BASH.DIC
 autocmd BufNewFile,BufRead,BufWinEnter *.sh imap <M-l> else
 " autocomplete from
 autocmd BufNewFile,BufRead,BufWinEnter *.sh set complete=""
@@ -105,7 +105,6 @@ autocmd BufNewFile,BufRead,BufWinEnter *.sh nnoremap т <C-R>=MyThisOrCompletePHP
 autocmd BufNewFile,BufRead,BufWinEnter *.sh inoremap { {<Enter>}<Up><End><Esc>i
 autocmd BufNewFile,BufRead,BufWinEnter *.sh imap <C-/> <c-o>I#<Esc>j^i
 autocmd BufNewFile,BufRead,BufWinEnter *.sh nmap <C-/> I#<Esc>j^i
-
 "Ctlr-Del
 autocmd BufNewFile,BufRead,BufWinEnter *.sh imap нь <Home><Del><Down>
 autocmd BufNewFile,BufRead,BufWinEnter *.sh nmap нь <Home>1x<Down>

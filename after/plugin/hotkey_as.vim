@@ -25,7 +25,7 @@ autocmd BufNewFile,BufRead,BufWinEnter *.as hi as3Classes ctermfg=5 ctermbg=16
 autocmd BufNewFile,BufRead,BufWinEnter *.as hi actionScriptMethods ctermfg=13 ctermbg=16
 autocmd BufNewFile,BufRead,BufWinEnter *.as hi HTML_href ctermfg=darkblue ctermbg=darkgray
 
-autocmd BufNewFile,BufRead,BufWinEnter *.as set dict+=~\VIM\VIMFILES\DICT\AS3.DIC
+autocmd BufNewFile,BufRead,BufWinEnter *.as set dict+=$HOME.\VIMFILES\DICT\AS3.DIC
 " autocomplete from
 autocmd BufNewFile,BufRead,BufWinEnter *.as set complete=""
 " current buffer
@@ -126,6 +126,5 @@ autocmd BufNewFile,BufRead,BufWinEnter *.as imap ô _title
 "autocmd BufNewFile,BufRead,BufWinEnter *.as imap Ô $this->
 autocmd BufNewFile,BufRead,BufWinEnter *.as inoremap Ô <C-R>=MyThisOrCompletePHP()<CR>
 autocmd BufNewFile,BufRead,BufWinEnter *.as nnoremap Ô <C-R>=MyThisOrCompletePHP()<CR>
-
 
 autocmd BufNewFile,BufRead,BufWinEnter *.as inoremap { {<Enter>}<Up><End><Esc>i

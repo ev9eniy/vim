@@ -1,4 +1,5 @@
 "`---------------------------------------- Rus Spellcheck ---------------------------------------- 
+"Для Title для битрикса 
 let &titlestring = substitute(expand("%:h"), '.*\\', "", "g")."\\".expand("%:t")
 "autocmd BufNewFile,BufRead,BufWinEnter,BufWritePre  * let &titlestring = substitute(expand("%:h"), '.*\\', "", "g")."\\".expand("%:t")
 if &term == "screen"
@@ -39,7 +40,7 @@ nmap Оd vG=<CR>
 "`---------------------------------------- Setup ---------------------------------------- 
 "Cамо пересчитывает vimrc при изменении оного:
 "autocmd! bufwritepost ~/.hotkey execute "normal! :source ~/.vimrc"
-autocmd! bufwritepost :source "~\Vim\vimfiles\after\plugin\hotkey.vim"
+autocmd! bufwritepost :source $HOME."\after\plugin\hotkey.vim"
 if has('cscope')
     " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
     set cscopetag
@@ -69,7 +70,7 @@ set timeoutlen=200 "Чтобы напибрать спокойно текст ff, tt,zzz итд
 "Set a CursorHold event to check to see if enough time has elapsed since the last save and save if not: 
 "au CursorHold * call UpdateFile()
 
-"Define a function to save the file if needed: 
+"Define a function! to save the file if needed: 
 " only write if needed and update the start time after the save
 "function! UpdateFile()
 "  if ((localtime() - b:start_time) >= 20)
@@ -254,19 +255,19 @@ let tlist_php_settings = 'php;c:class;f:function' " v:variable Что глядеть в таг
 "---------------------------------------- Tags ---------------------------------------- 
 
 "---------------------------------------- Folding ---------------------------------------- 
-autocmd BufNewFile,BufRead,BufWinEnter *.php,*.js let php_folding = 0
+autocmd BufNewFile,BufRead,BufWinEnter *.jch,*.php,*.js let php_folding = 0
 "set foldcolumn=4 "отступ декоративный
 "let php_folding = 0 "Закрывать фолдинги автоматически (мне показалось очень удобно)
-autocmd BufNewFile,BufRead,BufWinEnter *.php,*.js set foldmethod=expr
+autocmd BufNewFile,BufRead,BufWinEnter *.jch,*.php,*.js set foldmethod=expr
 "set foldmethod=manual
 set foldminlines=2
 set foldnestmax=5 "deepest fold is 3 levels. set nofoldenable dont fold by default. 
 set nofoldenable        "dont fold by default
-autocmd BufNewFile,BufRead,BufWinEnter *.php,*.js set foldexpr=getline(v:lnum-1)=~'^\\s*$'&&getline(v:lnum)=~'\\S'?'>1':1
+autocmd BufNewFile,BufRead,BufWinEnter *.jch,*.php,*.js set foldexpr=getline(v:lnum-1)=~'^\\s*$'&&getline(v:lnum)=~'\\S'?'>1':1
 "С плюсом вначале 
 "set foldtext='+'.v:folddashes.substitute(GetFirstLineWithChars(),'\\\/\\\/\\\|\\*\\\|\\*\\\|{{{\\d\\=','','g')
-autocmd BufNewFile,BufRead,BufWinEnter *.php,*.js set foldtext=substitute(GetFirstLineWithChars(),'\\\/\\\/\\\|\\*\\\|\\*\\\|{{{\\d\\=','','g')
-function GetFirstLineWithChars()
+autocmd BufNewFile,BufRead,BufWinEnter *.jch,*.php,*.js set foldtext=substitute(GetFirstLineWithChars(),'\\\/\\\/\\\|\\*\\\|\\*\\\|{{{\\d\\=','','g')
+function! GetFirstLineWithChars()
 	let line_num = 0
 	let charline = matchstr(getline(v:foldstart), '.*')
 	"let charline = matchstr(getline(v:foldstart), '[a-zA-Z][a-zA-Z ]*')
@@ -383,8 +384,12 @@ nmap <M-6> `a
 
 "---------------------------------------- F1-12 ---------------------------------------- 
 "F1
-nmap <F1> :cs find s <C-R>=expand("<cword>")<CR><CR>	
-imap <F1> <Esc>:cs find s <C-R>=expand("<cword>")<CR><CR>i
+"nmap <F1> :wa
+imap <F1> <Esc>:wa<Enter>i<Right>
+"vmap <F1> :wa
+
+"nmap <F1> :cs find s <C-R>=expand("<cword>")<CR><CR>	
+"imap <F1> <Esc>:cs find s <C-R>=expand("<cword>")<CR><CR>i
 "imap <F1> <Esc>:set hlsearch<CR>/\m#\$<CR>i
 "nmap <F1> :set hlsearch<CR>/\m#\$<CR>i
 imap <S-F1> <Esc>:set hlsearch<CR>:%s/\m//g<Left><Left><Left>
@@ -416,9 +421,9 @@ imap Оi <Esc>Ni
 imap <M-:> <Esc>A;<CR>
 vmap <M-:> <Esc>A;<CR>
 
-autocmd BufNewFile,BufRead,BufWinEnter *.php imap <silent><F3> <Esc>:w\|:call PHPsynCHK()<Enter>\|:!@to_ftp.cmd %<CR><CR>k\|w<CR>i
-autocmd BufNewFile,BufRead,BufWinEnter *.php vmap <silent><F3> <Esc>:w\|:call PHPsynCHK()<Enter>\|:!@to_ftp.cmd %<CR><CR>k\|w<CR>i
-autocmd BufNewFile,BufRead,BufWinEnter *.php nmap <silent><F3> :w\|:call PHPsynCHK()<Enter>\|:!@to_ftp.cmd %<CR><CR>k\|w<CR>i
+autocmd BufNewFile,BufRead,BufWinEnter *.jch,*.php imap <silent><F3> <Esc>:w\|:call PHPsynCHK()<Enter>\|:!@to_ftp.cmd %<CR><CR>k\|w<CR>i
+autocmd BufNewFile,BufRead,BufWinEnter *.jch,*.php vmap <silent><F3> <Esc>:w\|:call PHPsynCHK()<Enter>\|:!@to_ftp.cmd %<CR><CR>k\|w<CR>i
+autocmd BufNewFile,BufRead,BufWinEnter *.jch,*.php nmap <silent><F3> :w\|:call PHPsynCHK()<Enter>\|:!@to_ftp.cmd %<CR><CR>k\|w<CR>i
 autocmd BufNewFile,BufRead,BufWinEnter *.js imap <silent><F3> <Esc>:w\|:call PHPsynCHK()<Enter>\|:!@to_ftp.cmd %<CR><CR>ki
 autocmd BufNewFile,BufRead,BufWinEnter *.js vmap <silent><F3> <Esc>:w\|:call PHPsynCHK()<Enter>\|:!@to_ftp.cmd %<CR><CR>ki
 autocmd BufNewFile,BufRead,BufWinEnter *.js nmap <silent><F3> :w\|:call PHPsynCHK()<Enter>\|:!@to_ftp.cmd %<CR><CR>ki
@@ -540,11 +545,11 @@ menu Encoding.windows-1251 :e ++enc=cp1251 ++ff=dos<CR>
 menu Encoding.utf-8 :e ++enc=utf8 <CR>
 
 " Save the current buffer and execute the Tortoise SVN interface's diff program
-"map <silent> ,tdiff :w<CR>:silent !"~\TortoiseSVN\bin\TortoiseProc.exe /command:diff /path:"%" /notempfile /closeonend"<CR>
+"map <silent> ,tdiff :w<CR>:silent !"C:\Progra~1\TortoiseSVN\bin\TortoiseProc.exe /command:diff /path:"%" /notempfile /closeonend"<CR>
 " Save the current buffer and execute the Tortoise SVN interface's log
-"map <silent> ,tlog :w<CR>:silent !"~\TortoiseSVN\bin\TortoiseProc.exe /command:log /path:"%" /notempfile /closeonend"<CR>
+"map <silent> ,tlog :w<CR>:silent !"C:\Progra~1\TortoiseSVN\bin\TortoiseProc.exe /command:log /path:"%" /notempfile /closeonend"<CR>
 " Save the current buffer and execute the Tortoise SVN interface's revision graph
-"map <silent> ,trevs :w<CR>:silent !"~\TortoiseSVN\bin\TortoiseProc.exe /command:revisiongraph epath:"%" /notempfile /closeonend"<CR>
+"map <silent> ,trevs :w<CR>:silent !"C:\Progra~1\TortoiseSVN\bin\TortoiseProc.exe /command:revisiongraph epath:"%" /notempfile /closeonend"<CR>
 " Save the current buffer and execute the Tortoise SVN interface's blame program
 "map <silent> ,tblame :call TortoiseBlame()<CR>
 "imap <silent> <S-F7> <c-o>:call TortoiseBlame()<CR>
@@ -554,7 +559,7 @@ menu Encoding.utf-8 :e ++enc=utf8 <CR>
 "  " Now run Tortoise to get the blame dialog to display
 "  let filename = expand("%")
 "  let linenum = line(".")
-"  silent execute('!~\TortoiseSVN\bin\TortoiseProc.exe /command:commit /path:"' . filename . '" /line:' . linenum . ' /notempfile /noquestion /ignoreexternals /nonrecursive /rev:1234 /closeonend:4')
+"  silent execute('!C:\Progra~1\TortoiseSVN\bin\TortoiseProc.exe /command:commit /path:"' . filename . '" /line:' . linenum . ' /notempfile /noquestion /ignoreexternals /nonrecursive /rev:1234 /closeonend:4')
 ""  execute('!/C/Progra~1/TortoiseSVN/bin/TortoiseProc.exe /command:blame /path:' . filename . ' /line:' . linenum . ' /notempfile /closeonend')
 "endfunction
 
@@ -567,7 +572,7 @@ func! CommitSVNAll()
 	endfor
 	let files = join(buflist, '*')
 	if files != ''
-		silent exec '!start "~\TortoiseSVN\bin\TortoiseProc.exe" /command:commit /path:"'.files.'" /closeonend:4'
+		silent exec '!start "C:\Program Files\TortoiseSVN\bin\TortoiseProc.exe" /command:commit /path:"'.files.'" /closeonend:4'
 	else
 		call confirm('No files loaded')
 	endif
@@ -582,8 +587,8 @@ vmap <F9>  <c-o>:call CommitSVNAll()<CR>
 imap <F9> <c-o>:call CommitSVNAll()<CR>
 
 "F9 Diff
-imap <silent> <S-F9> <Esc>:w<CR>:silent !"~\TortoiseSVN\bin\TortoiseProc.exe /command:diff /path:"%" /notempfile /closeonend"<CR>
-nmap <silent> <S-F9> :w<CR>:silent !"~\TortoiseSVN\bin\TortoiseProc.exe /command:diff /path:"%" /notempfile /closeonend"<CR>
+imap <silent> <S-F9> <Esc>:w<CR>:silent !"C:\Progra~1\TortoiseSVN\bin\TortoiseProc.exe /command:diff /path:"%" /notempfile /closeonend"<CR>
+nmap <silent> <S-F9> :w<CR>:silent !"C:\Progra~1\TortoiseSVN\bin\TortoiseProc.exe /command:diff /path:"%" /notempfile /closeonend"<CR>
 
 
 "F11
@@ -691,7 +696,7 @@ endfunction
 
 "inoremap <Tab> <C-N>
 
-function MyThisOrCompletePHP()
+function! MyThisOrCompletePHP()
 let col = col('.')-1
 if !col || getline('.')[col-1] !~ '\k'
 	return "$this\-\>"
@@ -700,7 +705,7 @@ else
 endif
 endfunction
 
-function MyThisOrCompleteJS()
+function! MyThisOrCompleteJS()
 let col = col('.')-1
 if !col || getline('.')[col-1] !~ '\k'
 	return "this\."
@@ -711,7 +716,7 @@ endfunction
 
 
 
-function MyTabOrComplete()
+function! MyTabOrComplete()
 let col = col('.')-1
 if !col || getline('.')[col-1] !~ '\k'
 return "\<tab>"
