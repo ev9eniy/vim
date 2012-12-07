@@ -212,6 +212,12 @@ set showmatch "проверка скобок
 set history=500 "увеличение истории команд
 set undolevels=1000
 "set backup " включить сохранение резервных копий
+" tell vim to keep a backup file
+set backup
+" tell vim where to put its backup files
+set backupdir=$VIM.\\VIMFILES
+" tell vim where to put swap files
+set dir=$VIM.\\VIMFILES
 "function! BackupDir() " сохранять умные резервные копии ежедневно
 "	let l:backupdir='Q:\' 	" определим каталог для сохранения резервной копии
 "	if !isdirectory(l:backupdir) 	" если каталог не существует, создадим его рекурсивно

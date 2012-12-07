@@ -30,6 +30,7 @@ autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html set dict+=$HOME.\VIMF
 autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html set dict+=$HOME.\VIMFILES\DICT\bitrix.dic
 autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html set dict+=$HOME.\VIMFILES\DICT\bitrix_comp.dic
 autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html set dict+=$HOME.\VIMFILES\DICT\PHP.DIC
+autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html set dict+=$HOME.\VIMFILES\DICT\css21.dic
 
 "autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html setlocal complete+=k
 "autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html setlocal dictionary+=$HOME/.vimfiles/dic/phpfunclist
@@ -118,3 +119,4 @@ autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html imap ô _title
 autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html inoremap Ô <C-R>=MyThisOrCompletePHP()<CR>
 autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html nnoremap Ô <C-R>=MyThisOrCompletePHP()<CR>
 autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html inoremap { {<Enter>}<Up><End><Esc>i
+autocmd BufNewFile,BufRead,BufWinEnter *.php,*.cphp,*.html imap ?> ?><S-Enter><Enter><?php<Up>

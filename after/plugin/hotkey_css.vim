@@ -18,6 +18,19 @@ au BufRead,BufNewFile,BufWinEnter *.css,*.html nmap <silent><F3> :w\|:!@to_ftp.c
 au BufRead,BufNewFile,BufWinEnter *.css set dict+=$HOME.\VIMFILES\DICT\plueprint.dic
 au BufRead,BufNewFile,BufWinEnter *.css set dict+=$HOME.\VIMFILES\DICT\css21.dic
 
+"C-Insert
+
+autocmd BufNewFile,BufRead,BufWinEnter *.css imap ну <c-o>ve<C-c>
+autocmd BufNewFile,BufRead,BufWinEnter *.css imap нуну <c-o>vf]<C-c>
+autocmd BufNewFile,BufRead,BufWinEnter *.css imap нунуну <c-o>v2f]<C-c>
+autocmd BufNewFile,BufRead,BufWinEnter *.css imap нунунуну <c-o>v3f]<C-c>
+autocmd BufNewFile,BufRead,BufWinEnter *.css imap нунунунуну <c-o>v4f]<C-c>
+autocmd BufNewFile,BufRead,BufWinEnter *.css nmap ну ve<C-c>i
+autocmd BufNewFile,BufRead,BufWinEnter *.css nmap нуну vf]<C-c>i
+autocmd BufNewFile,BufRead,BufWinEnter *.css nmap нунуну v2f]<C-c>i
+autocmd BufNewFile,BufRead,BufWinEnter *.css nmap нунунуну v3f]<C-c>i
+autocmd BufNewFile,BufRead,BufWinEnter *.css nmap нунунунуну v4f]<C-c>i
+
 
 "au BufRead,BufNewFile *.css set foldmethod=marker  
 "au BufRead,BufNewFile *.css set foldmarker=(start),(end)
